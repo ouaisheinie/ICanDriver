@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>选择驾校</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="idrive.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header class="clearfix">
+	<ul>
+		<li id="return"><img src="return.png" ></li>
+		<li><p>选择驾校</p></li>
+	</ul>
+</header>
+<div class="mainbody clearfix">
+	<p class="signUp_point">附近的报名点</p>
+	<div class="content">
+		<!-- <div class='schoolMessage'>
+			<div class='mainbody_left_img'><img src="" alt=""></div>
+			<div class='mainbody_right_message'>
+				<h2 id='title'>四川航天职业技术学院</h2>
+				<p>此处添加简单的介绍此处添加简单的介绍此处添加简单的介绍此处添加简单的介绍</p>
+				<div class='clearfix'>
+					<div class='sign_up'>已报名:<span class='sign_up_number'>16</span></div>
+					<div class='distance'>
+						<img src='locate.png' alt='距离'>
+						<span class='distance_long'>距 2.4km</span>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	</div>
+
+	
+	<div class="searchMore">
+		<form class='form_1' action="">
+			<input class="btn_1" type="submit" value = "查看更多">
+		</form>
+	</div>
+</div>
+<footer class="clearfix">
+	<div class="footer_line1"></div>
+	<div class="footer_text"><p>成都三环以内不能练车的哟，亲</p></div>
+	<div class="footer_line2"></div>
+</footer>
+<script src="../info/jquery.min.js"></script>
+<script src="../layer.js"></script>
+<script type="text/javascript">
+$("#return").click(function(){
+	window.location.href="http://localhost/work/web/index/index.html";
+});
+$(function(){
+
+		
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(showPosition);
+		}else{
+			layer.msg('您的浏览器不支持定位');
+		}
+		function showPosition(position){
+			var gps_w=position.coords.latitude;
+			var gps_j=position.coords.longitude;
+			var token =localStorage.phone;
+		$.ajax({
+			url:"../../../work/api/schoolInfo.php",
+			data:{token:token,gps_w:gps_w,gps_j:gps_j},
+			dataType:'json',
+			type:'post',
+			success:function(data){
+				if(data.status==250){
+					layer.msg("请重新登录");
+					setInterval(function(){
+						window.location.href="../login/log_in.html";
+					},2000);
+				}
+				if(data.status==200){
+					$(data.data).each(function(){
+						$(this).each(function(){
+							var distance = Math.ceil(this.distance/1000);
+							$('.content').append("<div class='schoolMessage' school_id="+this.school_id+"><div class='mainbody_left_img'><img src="+this.school_img+"></div><div class='mainbody_right_message'><h2 id='title'>"+this.school_name+"</h2><p>"+this.school_content+"</p><div class='clearfix'><div class='sign_up'>已报名:<span class='sign_up_number'>"+this.sign_num+"</span></div><div class='distance'><img src='locate.png' alt='距离'><span class='distance_long'>距 "+distance+"km</span></div></div></div></div>");
+							$(".schoolMessage").click(function(){
+								var school_id= $(this).attr('school_id');
+								window.location.href="../sign/sign_up.php?school_id="+school_id;
+								});
+						})
+					}); 
+				}
+				if(data.status==400){
+					layer.msg(data.msg);
+				}
+			},
+			error:function(){
+				layer.msg("请求失败");
+			}
+		});
+	}
+});
+
+</script>
+</body>
+</html>

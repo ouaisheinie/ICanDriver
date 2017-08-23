@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" >
+	<title>支付</title>
+	<link rel="stylesheet" href="../vender/css/normalize.css">
+	<link rel="stylesheet" href="pay-page.css">
+</head>
+<body>
+<header>
+	<img src="return.png" alt="返回">
+	<p>支付页面</p>
+</header>
+<section>
+	<ul>
+		<li class="how-much-money">
+			<span>总计:</span>
+			<span id="place">计算中...</span>
+		</li>
+		<li>
+			<form>
+				<label>
+					<span>支付宝</span>
+					<input type="radio" name="radio" onclick="chose('zfb')" value="zfb"><i></i>
+				</label>
+				<label>
+					<span>微信</span>
+					<input type="radio" name="radio" onclick="chose('wx')"  value="wx"><i></i>
+				</label>
+			</form>
+		</li>
+	</ul>
+</section>
+<footer>
+	<button class="btn_comfirm">立即支付</button>
+</footer>
+<input type="hidden" name="payment">
+<script src="http://www.heibaipig.com/front/js/jquery-1.11.0.min.js"></script>
+<script src="../vender/src/picturefill.js"></script>
+<script src="index.js"></script>
+<script src="../../layer.js"></script>
+<script>
+	function chose(val){
+		$("input[name='payment']").val(val);
+	}
+	$(function () {
+		var token =localStorage.phone;
+		var address =localStorage.address;
+		var order_time =localStorage.order_time;
+		var subject =localStorage.subject;
+		var teacher_id =localStorage.teacher_id;
+		var today =$.grep(localStorage.today.split(","), function(n) {return $.trim(n).length > 0;});
+		var tomorrow =$.grep(localStorage.tomorrow.split(","), function(n) {return $.trim(n).length > 0;});
+		var after =$.grep(localStorage.after.split(","), function(n) {return $.trim(n).length > 0;});
+		var place =localStorage.place;
+		//计算出数量
+		var num=today.length+tomorrow.length+after.length;
+		//计算出价格
+		var placeAll=num*place;
+		$('#place').html(placeAll+'.00元');
+		//支付
+		$('.btn_comfirm').click(function () {
+			var payment_type = $("input[name='payment']").val();
+			if(payment_type==''){
+				layer.msg('请选择支付方式')
+			}else{
+				//异步处理，保存订单
+				$.ajax({
+					url:"http://localhost/work/api/saveTeacherOrder.php",
+					type:'post',
+					data:{token:token,teacher_id:teacher_id,today:today,tomorrow:tomorrow,after:after,subject:subject,address:address,order_time:order_time,place:place},
+					dataType:'json',
+					success:function(data){
+						console.log(data);
+						if(data.status==200){//保存订单成功，调支付接口
+							clear();//删除缓存
+							window.location.href="http://localhost/work/api/payment_teacher.php?order="+data.order+'&place='+placeAll+'&payment_type='+payment_type;
+						}else if(data.status==401){
+							layer.msg('已有人抢先订单');
+						}else{
+							layer.msg('保存订单失败');
+						}
+					},
+					error:function(){
+						alert("请求失败");
+					}
+				});
+			}
+		})
+	});
+	function clear(){
+		localStorage.removeItem(localStorage.teacher_id);
+		localStorage.removeItem(localStorage.today);
+		localStorage.removeItem(localStorage.tomorrow);
+		localStorage.removeItem(localStorage.after);
+		localStorage.removeItem(localStorage.place);
+		localStorage.removeItem(localStorage.address);
+		localStorage.removeItem(localStorage.order_time);
+		localStorage.removeItem(localStorage.subject);
+	}
+</script>
+</body>
+</html>

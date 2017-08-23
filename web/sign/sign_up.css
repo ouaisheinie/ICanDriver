@@ -1,0 +1,310 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding:0.1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size:625%;
+	color: #222;
+	font-family: "微软雅黑"
+}
+
+body{
+	position:relative;
+	overflow-x:hidden;
+	-webkit-overflow-scrolling:touch;
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+input,button,select,textarea{
+	outline:none;
+}
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+/*header样式*/
+header{
+	height: 0.63rem;
+	background:#f07a34;
+}
+header ul li {
+	height: 0.63rem;
+	float:left;
+	overflow: hidden;
+}
+.information_btn1{
+	width:0.41rem;
+	height: 0.63rem;
+	border:none;
+	position: absolute;
+	background: url(return.png)no-repeat;
+	background-position: 0.13rem 0.31rem;
+	background-size: 0.2rem 0.2rem;
+	z-index: 999;
+}
+header ul li p{
+	color: #ffffff;
+	display: block;
+	font-size: 0.17rem;
+	margin-left:0.40rem;
+	border-left: 1px solid rgba(255,255,255,0.4);
+	padding-left: 0.05rem;
+	position: absolute;
+	top:0.15rem;
+}
+/*场地图片*/
+.site_look{
+	height: 1.27rem;
+}
+.site_look img{
+	width:100%;
+	height: 1.27rem;
+	overflow: hidden;
+}
+/*主要信息模块*/
+.school_address,.link_man,.how_to_learn{
+	margin-left: 0.14rem;
+	width: calc(100% - 0.28rem);
+	border-top:1px solid #f2f2f2;
+}
+
+.school_address img{
+	width: 0.43rem;
+	height: 0.4rem;
+	float:right;
+	margin-top: 0.20rem;
+}
+.school_address h2{
+	font-size: 0.213rem;
+	margin:0.14rem auto;
+}
+.school_address p{
+	font-size: 0.1067rem;
+}
+
+/*link*/
+.link_man{
+	padding-top:0.05rem;
+	padding-bottom: 0.05rem;
+}
+.link_man img{
+	width: 0.43rem;
+	height: 0.4rem;
+	float:right;
+	margin-top: 0.1rem;
+}
+.link_man p{
+	font-size: 0.1067rem;
+}
+.link_man h2{
+	font-size: 0.1067rem;
+	font-weight: normal;
+}
+.link_man h2 span{
+	font-weight: bold;
+}
+
+/*how to learn*/
+.how_to_learn .how_to_fee{
+	font-size: 0.18rem;
+	margin-top:0.14rem;
+	font-weight: bold;
+}
+.how_to_fee label{
+	display: inline-block;
+}
+#input_learn_1,#input_learn_2{
+	position: absolute;
+	left: -9999px;
+}
+.how_to_fee label i{
+	display: inline-block;
+	width: 0.2rem;
+	height: 0.2rem;
+	margin:0.02rem 0.2rem auto 0.05rem;
+	background: url(vv-2.png)no-repeat;
+	background-size: 0.16rem 0.16rem;
+	vertical-align: middle;
+}
+.how_to_fee label input:checked+i{
+	background: url(vv-1.png)no-repeat;
+	background-size:0.16rem 0.16rem;
+}
+/*所需材料模块*/
+.material{
+	width: 100%;
+}
+.material form label input{
+	font-size: 0.1rem;
+}
+.material h2{
+	color: #595959;
+	margin-top:0.2rem;
+	font-size:0.15rem;
+	font-weight: bold;
+	display: block;
+}
+.material p{
+	font-size: 0.0889rem;
+	display: block;
+}
+.material p span{
+	float: right;
+	margin-right: calc(100% - 1.7rem);
+}
+.material_submit{
+	font-size: 0.1rem;
+	color: #fff;
+	position: absolute;
+	top: 5.48rem;
+	right: 2rem;
+	border:none;
+	padding: 0.03rem 0.07rem;
+	background: #479be1;
+	-webkit-border-radius:0.04rem;
+}
+/*价格*/
+.price{
+	float:right;
+	position: absolute;
+	top:5.14rem;
+	left: calc(100% - 1.13rem);
+}
+.price p{
+	font-size: 0.17rem;
+	line-height: 0;
+	font-weight: bold;
+	z-index: 999;
+	color:#fb5c16;
+
+}
+.price p del{
+	font-size: 0.0889rem;
+	font-weight: normal;
+	color:#7f7f7f;
+}
+/*多选框*/
+.server_final {
+	font-size: 0.0889rem;
+/*	display:inline-block*/;
+	text-align: right;
+	color: #666666;
+}
+.server_final label{
+	display: inline-block;
+}
+.server_final input{
+	position: absolute;
+	right: 9999px;
+}
+.server_final label i{
+	display: inline-block;
+	width: 0.12rem;
+	height: 0.12rem;
+	margin:-0.025rem 0.025rem auto auto;
+	vertical-align: middle;
+	background: url(vv-2.png)no-repeat;
+	background-size: 0.12rem 0.12rem;
+}
+.server_final label input:checked+i{
+	background: url(vv-3.png)no-repeat;
+	background-size:0.12rem 0.12rem;
+}
+/*提交按钮*/
+.footer_submit{
+	height:0.43rem;
+	margin-top: 0.2rem;
+}
+.footer_submit form input{
+	font-size: 0.2134rem;
+	width: 90%;
+	margin-left: 5%;
+	height:0.43rem;
+	margin-top: -0.2rem;
+	color:#ffffff;
+	background: #fe8236;
+	border: none;
+	-webkit-border-radius:0.05rem;
+	position:relative;
+	top: -0.8rem;
+}

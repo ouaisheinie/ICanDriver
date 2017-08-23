@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>信息录入</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="drive_information.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header class="clearfix">
+	<ul>
+		<li><button class="information_btn1"></button></li>
+		<li><p>试驾信息</p></li>
+	</ul>
+</header>
+<section class="mainbody">
+	<form class="information_collect">
+		<span>居住地址:</span>
+		<input class="message_input" type="text"  id="address" name="address" placeholder="请输入正确的地址">
+		<br/>
+		<span>试驾时间:</span>
+		<input class="message_input"  type="text" name="trytime" id="trytime"  onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" >
+		<br/>
+		<input class="contact_server" type="button" value="联系客服">
+		<input class="submit_final" type="button" value="提交" id="button">
+	</form>
+</section>
+<script src="jquery.min.js"></script>
+<script src="picturefill.js"></script>
+<script src="../layer.js"></script>
+<script src="laydate/laydate.js"></script>
+<script >
+	$(".information_btn1").click(function(){
+		window.location.href="http://localhost/work/web/index/index.html";
+	});
+
+		$("#button").click(function(){
+			var address = $("#address").val();
+			if(address==""){
+				layer.msg("请填写正确的地址");
+			}
+			var trytime = $("#trytime").val();
+			if(trytime==""){
+				layer.msg("请填写试驾时间");
+			}
+			var token =localStorage.phone;
+			$.ajax({
+				url:"../../..//work/api/testDrive.php",
+				type:'post',
+				dataType:'json',
+				data:{address:address,time:trytime,token:token},
+				success:function(data){
+					if(data.status==200){
+						layer.msg("试驾预约成功");
+						setInterval(function(){
+							window.location.href="../index/index.html";
+						},2000);
+					}
+					if(data.status==250){
+						layer.msg("请重新登录");
+						setInterval(function(){
+							window.location.href="../login/log_in.html";
+						},2000);
+					}
+					if(data.status==400){
+						layer.msg("申请失败请重新申请");
+
+					}
+					if(data.status==450){
+						layer.msg("你已经申请过试驾了");
+						setInterval(function(){
+							window.location.href="../index/index.html";
+						},2000);
+					}
+				},
+				error:function(){
+					layer.msg("请求失败");
+				}
+			});
+
+		});
+</script>
+</body>
+</html>

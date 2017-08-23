@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>约教</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="arrange_teaching.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header>
+	<button class="information_btn1"></button>
+	<p class="">约教</p>
+</header>
+<section>
+	<ul class="main_message_moudule">
+
+	</ul>
+</section>
+<script src="http://www.heibaipig.com/front/js/jquery-1.11.0.min.js"></script>
+<script src="picturefill.js"></script>
+<script>
+	$(function () {
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(showPosition);
+		}else{
+			layer.msg('您的浏览器不支持定位');
+		}
+		function showPosition(position){
+			var gps_w=position.coords.latitude;
+			var gps_j=position.coords.longitude;
+			var token =localStorage.phone;
+			console.log(gps_w);
+			console.log(gps_j);
+			$.ajax({
+				url:"http://localhost/work/api/teacherInfo.php",
+				type:'post',
+				data:{token:token,gps_w:gps_w,gps_j:gps_j},
+				dataType:'json',
+				success:function(data){
+					if(data.status==200){
+						$(data.data).each(function () {
+							$('.main_message_moudule').append(
+									'<li class="introduce_coach" i="'+this.teacher_id+'">'+
+									'<div class="left_introduce">'+
+									'<img src='+this.teacher_photo+' alt="教练头像">'+
+									'<p>车型任选</p>'+
+									'</div>'+
+									'<input class="T_id" type="hidden" value="'+this.teacher_id+'" />'+
+									'<div class="right_introduce">'+
+									'<div class="right_introduce_top">'+
+									'<h3>'+this.teacher_name+'</h3>'+
+									'<p class="subject2">科二:'+this.subject2_place+'/小时</p>'+
+									'<p class="subject3">科三:'+this.subject3_place+'/小时</p>'+
+									'</div>'+
+									'<div class="right_introduce_middle">'+
+									'<p>'+this.content+'</p>'+
+									'</div>'+
+									'<div class="right_introduce_down clearfix">'+
+									'<p>17人已评价</p>'+
+									'<p>16人已预约</p>'+
+									'</div>'+
+									'</div>'+
+									'</li>'
+							);
+						})
+					}
+					if(data.status==250){
+						layer.msg("请重新登录");
+						setInterval(function(){
+							window.location.href="http://localhost/work/web/login/log_in.html";
+						},2000)
+					}
+					if(data.status==400){
+						layer.msg(data.msg);
+						setInterval(function(){
+							window.location.href="http://localhost/work/web/info/information.html"
+						},2000)
+					}
+				},
+				error:function(){
+					alert("请求失败");
+				}
+			});
+			$('.main_message_moudule').on('click','li', function () {
+				var id=$(this).attr('i');
+				localStorage.teacher_id=id;
+				window.location.href="http://localhost/work/web/date_teacher2/teaching.html";
+			})
+		}
+	});
+
+</script>
+</body>
+</html>

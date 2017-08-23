@@ -1,0 +1,287 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding: 1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size:62.5%;
+	color: #222;
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+input,button,select,textarea{
+	outline:none;
+}
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+/*header样式*/
+header{
+	background: -webkit-linear-gradient(left,#ff8b93,#fdc081);
+	height:68px;
+}
+header ul li{
+	height: 68px;
+	float:left;
+	overflow: hidden;
+}
+.information_btn1{
+	width: 3.5rem;
+	height:3.6rem;
+	border:none;
+	margin:1.7rem auto auto -0.5rem;
+	background:url(return.png)no-repeat;
+}
+header ul li p{
+	display: inline-block;
+	font-size: 22px;
+	/*float:left;*/
+	color:#fff;
+	padding-left:1rem;
+	border-left: 1px solid #efdedd;
+	margin:2.7rem auto auto 0.8rem;
+}
+
+/*mainbody样式*/
+.head_portrait{
+	margin: 0 auto;
+	border:1px solid #efdedd;
+	width: 7.125rem;
+	height: 7.125rem;
+	-webkit-border-radius:3.5625rem;
+	overflow: hidden;
+	background-color: #e5e5e5;
+	margin-top: 1rem;
+}
+.head_portrait img{
+	width: 7.125rem;
+	height: 7.125rem;
+}
+.change_head{
+	text-align: center;
+	font-size:1.5rem;
+	font-weight: bold;
+	position: relative;
+	top:-1rem;
+}
+
+/*form表单内的样式*/
+.information_collect{
+	font-size:1.5rem;
+	font-weight: bold;
+	text-align:right;
+}
+.information_collect span{
+	float:left;
+	clear: both;
+	margin-left:2rem;
+	position: relative;
+	top:1.2rem;
+}
+.information_collect .message_input{
+	margin-right:
+}
+.message_input{
+	width:calc(100% - 11rem);
+	border:2px solid #ff8c93;
+	padding:0.5rem 0 0.5rem 0.5rem;
+}
+.age_select{
+	width:calc(100% - 11rem);
+	-webkit-appearance: none;
+	border:2px solid #ff8c93;
+	padding:0.5rem 0 0.5rem 0;
+	text-align-last: center;
+}
+.message_input,.age_select{
+	-webkit-border-radius:0.5rem;
+  	-webkit-box-sizing: border-box;
+  	margin:0.5rem 2rem 0.5rem auto;
+
+}
+.age_select option{
+	height:4rem;
+}
+/*复选框  同意协议*/
+input[type=checkbox] {
+	visibility: hidden;
+}
+.checkbox_default{
+	width:90%;
+	margin: 20px 4rem 20px auto;
+	position: relative;
+}
+.checkbox_default label{
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: -6px;
+  	right:20rem;
+	background: #eee;
+	border:1px solid #ddd;
+}
+/*下面这一个是coach_register页面的点选协议*/
+.checkbox_default #label_btn2{
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: -6px;
+  	right:18.6rem;
+	background: #eee;
+	border:1px solid #ddd;
+}
+/*以上coach_register页面单独控制结束*/
+
+.checkbox_default label:after{
+	opacity: 0.2;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+}
+.checkbox_default input[type=checkbox]:checked + label:after{
+	opacity:1;
+}
+/*提交按钮*/
+.submit_final{
+	width:80%;
+	padding:0.8rem;
+	margin-right:10%;
+	-webkit-border-radius:0.4rem;
+	background:#febca6;
+	border:none;
+	color:#fff;
+	font-size: 1.8rem;
+	font-family: "微软雅黑";
+	margin-bottom: 2rem;
+}
+
+.hide{
+		
+	              width:100%;  
+		    position:absolute;  
+		    background:#000;  
+		    z-index:-998;
+		    top:0;  
+		    left:0;  
+		    height:2000px;
+		    opacity:0.02; 
+	}
+	.head{
+		background: white;
+		border: 1px solid black;
+		border-radius: 8px;
+		height: 100px;
+		width:20%;
+		text-align: center;
+		line-height: 29px;
+		position: fixed;
+		left: 40%;
+		top:50%;
+
+	}
+	.body{
+		border-bottom:1px solid black;
+		
+		height: 60%;
+		width: 100%;
+
+	}
+	.buttons{
+		line-height: 40px;
+		cursor:pointer;
+	}
+	.buttons:active{
+		background: #338fff;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}

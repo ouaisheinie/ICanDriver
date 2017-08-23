@@ -1,0 +1,217 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding:0.1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size:625%;
+	color: #222;
+	font-family: "微软雅黑";
+}
+@media only screen and (min-width: 370px) {
+	html{
+		font-size:750%;
+	}
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+input,button,select,textarea{
+	outline:none;
+}
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+::-webkit-input-placeholder { color:#bababa; }
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+/*header*/
+body{
+	background:#f7f6f6;
+}
+header{
+	background: #fe8237;
+	height: 0.67rem;
+}
+header img,header p{
+	float: left;
+}
+header img{
+	width: 0.215rem;
+	height: 0.2rem;
+	margin:0.35rem auto auto 0.15rem;
+}
+header p{
+	font-size: 0.1778rem;
+	color: #fff;
+	margin:0.35rem auto auto calc(50% - 76px);
+	display: block;
+}
+/*section*/
+section ul li:first-child{
+	font-size: 0.14225rem;
+	color: #666666;
+	height: 1.1rem;
+	display: flex;
+	-webkit-display:flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #e6e6e6;
+	background: #fff;
+}
+section ul li:last-child{
+	font-size: 0.14225rem;
+	color: #666666;
+	border-bottom: 1px solid #e6e6e6;
+	height: 1.2rem;
+	background: #fff;
+}
+section ul li span{
+	margin-left: 0.20rem;
+	margin-top: 0.2rem;
+}
+section ul li form{
+	height: 1.2rem;
+	width: 100%;
+}
+section ul li form label{
+	display: block;
+	width: 100%;
+	height: 0.6rem;
+}
+section ul li form label:last-child{
+	border-top:1px solid #ebebeb;
+}
+section ul li form label span{
+	vertical-align: middle;
+	height: 0.6rem;
+	line-height: 0.6rem;
+}
+.how-much-money{
+	height: 1.3rem;
+}
+.how-much-money span:first-child{
+	font-weight: bold;
+	position: relative;
+	top: -0.5rem;
+}
+.how-much-money span:last-child{
+	font-size: 0.3556rem;
+	margin: 0 auto;
+	position: relative;
+	left: -0.2rem;
+}
+/*css3图标*/
+section ul li form label input{
+	position: absolute;
+	left: -9999999px;
+}
+section ul li form label i{
+	display: block;
+	width: 0.13rem;
+	height: 0.13rem;
+	/*background: #fe8830;*/
+	background-clip: content-box;
+	border-radius: 0.15rem;
+	-webkit-border-radius:0.15rem;
+	padding:2px;
+	border:1px solid #666666;
+	float: right;
+	margin-top:20px;
+	margin-right: 20px;
+}
+section ul li form label input:checked+i{
+	background: #fe8830;
+	background-clip: content-box;
+	border-radius: 0.15rem;
+	-webkit-border-radius:0.15rem;
+	padding:2px;
+}
+/*底部确定*/
+.btn_comfirm{
+	width: 90%;
+	height: 0.485rem;
+	margin-left: 5%;
+	border:none;
+	border-radius: 0.08rem;
+	background:#fe8830;
+	color: #fff;
+	font-size: 0.18rem;
+	position: fixed;
+	bottom: 15px;
+}

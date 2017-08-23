@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>我</title>
+	<link rel="stylesheet" href="me.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header>
+	<img src="settings.png" alt="设置">
+</header>
+<section>
+	<div class="myItems"  id="sign"><img src="sign_up_me.png" alt="该图片未加载成功"><span>我的报名</span></div>
+	<div class="myItems" id="kaoshi"><img src="exam.png" alt="该图片未加载成功"><span>我要考试</span></div>
+	<div class="myItems" id="cailiao"><img src="sign_info.png" alt="该图片未加载成功"><span>提交资料</span></div>
+	<div class="myItems" id="info"><img src="realName.png" alt="该图片未加载成功"><span>实名认证</span></div>
+	<div class="myItems" id="coach"><img src="coach_apply.png" alt="该图片未加载成功"><span>教练申请</span></div>
+	<div class="myItems" id="songkao"><img src="send_test.png" alt="该图片未加载成功"><span>送考预约</span></div>
+	<div class="myItems"><img src="my_point.png" alt="该图片未加载成功"><span>我的积分</span></div>
+	<div class="myItems"><img src="his_records.png" alt="该图片未加载成功"><span>历史记录</span></div>
+	<div class="myItems"><img src="contact_server.png" alt="该图片未加载成功"><span>客服中心</span></div>
+</section>
+<footer>
+	<ul class="footer_list">
+		<li onclick="window.location.href='http://localhost/work/web/index/index.html'" class="footer_list_num1">
+			<img src="study_drive_off.png" alt="学车">
+		</li>
+		<li class="footer_list_num2">
+			<img src="oderForm_off.png" alt="订单">
+		</li>
+		<li class="footer_list_num3">
+			<img src="practice_off.png" alt="练题">
+		</li>
+		<li class="footer_list_num4">
+			<img src="me_on.png" alt="我">
+		</li>
+	</ul>
+</footer>
+<script src="../info/jquery.min.js"></script>
+<script src="picturefill.js"></script>
+<script >
+	$("#songkao").click(function(){
+		window.location.href="../info/songkao.html";
+	});
+	$("#info").click(function(){
+		window.location.href="../info/information.html";
+	});
+	$("#cailiao").click(function(){
+		window.location.href="../info/baoming.php";
+	});
+	$("#coach").click(function(){
+		window.location.href="../info/coach_register.html";
+	});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>信息录入</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="drive_information.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header class="clearfix">
+	<ul>
+		<li><button class="information_btn1"></button></li>
+		<li><p style="padding-left: 8rem;border-left: 0px solid #efdedd;">约教信息</p></li>
+	</ul>
+</header>
+<section class="mainbody">
+	<form class="information_collect">
+		<span>接送地址:</span>
+ 		<input id="address" class="message_input" type="text">
+		<br/>
+		<span>接送时间:</span>
+		<input id="order_time" class="message_input" type="text" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+		<br/>
+		<input class="submit_final" type="button" value="付款" style="margin-right: 7.5rem;margin-top: 8.5rem;">
+	</form>
+</section>
+<script src="jquery.min.js"></script>
+<script src="laydate/laydate.js"></script>
+<script src="picturefill.js"></script>
+<script src="../layer.js"></script>
+<script>
+	$(function () {
+		$('.submit_final').click(function () {
+			var address = $('#address').val();
+			var order_time = $('#order_time').val();
+			if(address==''){
+				layer.msg('请输入地址');
+				return;
+			}
+			if(order_time==''){
+				layer.msg('请选择接送时间');
+				return;
+			}
+			localStorage.address=address;
+			localStorage.order_time=order_time;
+			window.location.href="http://localhost/work/web/payment/02/teacher_pay.html"
+		});
+	})
+</script>
+</body>
+</html>

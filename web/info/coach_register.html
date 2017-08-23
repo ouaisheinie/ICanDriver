@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>信息录入</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="information.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header class="clearfix">
+	<ul>
+		<li><button class="information_btn1"></button></li>
+		<li><p>教练注册申请</p></li>
+	</ul>
+</header>
+<section class="mainbody">
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<form class="information_collect clearfix" >
+		<span>姓名:</span>
+		<input class="message_input" type="text" id="name">
+		<br/>
+		<span>身份证号:</span>
+		<input class="message_input" type="text" id="idcard">
+		<br/>
+		<span>教练证号:</span>
+		<input class="message_input" type="text" id="teachcard">
+		<br/>
+		<div class="checkbox_default">
+			<input type="checkbox" id="drive_argument" name="drive_argument">我已阅读《i驾车教练注册协议》
+			<label id="label_btn2" for="drive_argument"></label>
+		</div>
+		<br/>
+		<input class="submit_final"  id="regBtn" type="button" disabled  value="提交">
+	</form>
+</section>
+<script src="jquery.min.js"></script>
+<script src="picturefill.js"></script>
+<script src="information.js"></script>
+<script src="../layer.js"></script>>
+<script type="text/javascript">
+		$(function(){
+    var regBtn = $("#regBtn");
+    $("#drive_argument").change(function(){
+        var that = $(this);
+        that.prop("checked",that.prop("checked"));
+        if(that.prop("checked")){
+            regBtn.prop("disabled",false)
+        }else{
+            regBtn.prop("disabled",true)
+        }
+    });
+});
+$(".submit_final").click(function(){
+	var name = $("#name").val();
+	if(name==""){
+		layer.msg("姓名不能为空");
+		return false;
+	}
+	var idcard = $("#idcard").val();
+	if(idcard==""){
+		layer.msg("身份证不能为空");
+		return false;
+	}else if (!/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/i.test(idcard)){
+		layer.msg("请填写合法的身份证号");
+		return false;
+	}
+	var teachcard = $("#teachcard").val();
+	if(teachcard==""){
+		layer.msg("教练证号不能为空");
+		return false;
+	}
+	var token =localStorage.phone;
+	$.ajax({
+		url:"../../../work/api/applyTeacher.php",
+		data:{token:token,name:name,ID_number:idcard,teacher_number:teachcard},
+		dataType:'json',
+		type:'post',
+		success:function(data){
+			if(data.status==200){
+				layer.msg("申请成功");
+				setInterval(function(){
+					window.location.href="../my/me.html";
+				},2000);
+		}
+			if(data.status==500){
+				layer.msg("请重新登陆");
+				setInterval(function(){
+					window.location.href="../login/log_in.html";
+				},2000)
+			}
+			if(data.status==400){
+				layer.msg(data.msg);
+			}
+		},
+		error:function(){
+			layer.msg('请求失败');
+		}
+	});
+});		
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding: 0.1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size:625%;
+	color: #222;
+	font-family: "微软雅黑";
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+input,button,select,textarea{
+	outline:none;
+}
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+/*header样式*/
+header{
+	background: #fe8c2c;
+	width: 100%;
+	height:0.77rem;
+	text-align: center;
+}
+.information_btn1{
+	display: inline-block;
+	float: left;
+	width: 0.5rem;
+	height: 0.45rem;
+	margin: 0.24rem 0.1rem 0.08rem auto;
+	background: url(return.png)no-repeat;
+	background-size: 0.25rem 0.25rem;
+	background-position: 0.145rem 0.12rem;
+	border:none;
+}
+header p{
+	display: inline-block;
+	margin:0.36rem 44.21% 0.14rem auto;
+	float: right;
+	font-size: 0.24rem;
+	color:#fff;
+}
+
+/*主要内容*/
+/*左边*/
+.main_message_moudule{
+	border-top:3px solid #eaeaea;
+}
+.introduce_coach{
+	height: 0.99rem;
+	border-bottom:1px solid #eaeaea;
+}
+.left_introduce{
+	width: 0.87rem;
+	height:100%;
+}
+.left_introduce img{
+	width: 0.6rem;
+	height: 0.6rem;
+	margin:auto auto 0.23rem 0.13rem;
+}
+.left_introduce p{
+	font-size: 0.0889rem;
+	display: block;
+	float:left;
+	background:#df6868;
+	color: #fff;
+	padding: 0.025rem 0.025rem 0.02rem 0.015rem;
+	-webkit-border-radius:0.05rem;
+	position: absolute;
+	z-index: 999;
+	margin-top: -0.5rem;
+	margin-left: 0.25rem;
+}
+/*右边*/
+.right_introduce{
+	display: inline-block;
+	width: calc(100% - 0.87rem);
+	margin-top:-0.99rem;
+	height: 100%;
+	float: right;
+}
+
+.right_introduce_top h3{
+	font-size: 0.16rem;
+	display:block;
+	float: left;
+	margin:0.16rem auto 0.10rem auto;
+}
+.right_introduce_top p{
+	font-size: 0.09485rem;
+	display:block;
+	float: left;
+	margin:0.16rem auto 0.09rem 0.12rem;
+	padding:0.02rem 0.04rem;
+}
+@media only screen and (min-width:320px) and (max-width:365px) {
+.right_introduce_top p{
+	font-size: 0.09485rem;
+	display:block;
+	float: left;
+	margin:0.16rem auto 0.09rem 0.02rem;
+	padding:0.02rem 0.02rem;
+}
+}
+.subject2{
+	color:#6ab494;
+	border: 1px solid #6ab494;
+}
+.subject3{
+	color:#fca832;
+	border:1px solid #fca832;
+}
+/*介绍内容*/
+.right_introduce_middle p{
+	display:block;
+	margin-right: 0.11rem;
+	font-size: 0.09485rem;
+	color: #919191;
+	margin-top: 0.45rem;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+	overflow: hidden;
+}
+
+/*预约 评价 人数*/
+.right_introduce_down p{
+	font-size: 0.083rem;
+	color:#b8b8b8;
+	display: block;
+	float:right;
+	margin :-0.05rem 0.11rem 0 0.11rem;
+}

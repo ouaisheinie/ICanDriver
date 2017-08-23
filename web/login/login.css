@@ -1,0 +1,204 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding: 1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size: 62.5%;
+	color: #222;
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+ /*登录标题*/
+body{
+	text-align: center;
+}
+header{
+	text-align:center;
+}
+header h1{
+	font-size:42px;
+	font-family:"黑体";
+	font-weight: normal;
+}
+
+/*登录表单控件*/
+section form{
+	display: inline-block;
+	margin-top: 6rem;
+	width:90%;
+	height:16.5rem;
+	border:1px solid #ececec;
+	font-size: 0;
+}
+
+section form .telePhone_num{
+	width:80%;
+	display: inline-block;
+	-webkit-box-sizing:border-box;
+	margin-top:2.5rem;
+	font-size:1.8rem;
+	padding: 0.8rem 0 0.8rem 3.2rem;
+	-webkit-border-radius:0.5rem;
+	border:1px solid #cccccc;
+}
+section form .verify_num{
+	width: 45%;
+	display: inline-block;
+	-webkit-box-sizing:border-box;
+	margin-top:1.5rem;
+	margin-right: 5%;
+	font-size: 1.8rem;
+	padding: 0.8rem 0 0.8rem 3.2rem ;
+	-webkit-border-radius:0.5rem;
+	border:1px solid #cccccc;
+}
+section form .get_verify_num{
+	width: 30%;
+	display: inline-block;
+	margin-top:1.5rem;
+	font-size: 1.4rem;
+	padding: 1rem 0 0.8rem 0;
+	-webkit-border-radius:0.4rem;
+	background:#ffa628;
+	border:1px solid #b2b2b2;
+	color:#ffffff;
+}
+
+.phone_pic{
+	width: 1rem;
+	height: 2rem;
+	position:absolute;
+	left:17%;
+	top:17.8rem;
+}
+.message_pic{
+	width:2rem;
+	height: 1.5rem;
+	position:absolute;
+	left:16%;
+	top: 23.2rem;
+}
+.bear_hand1{
+	width: 2.7rem;
+	height: 1.7rem;
+	position:relative;
+	bottom: 20.5rem;
+}
+.bear_body{
+	width: 8.7rem;
+	height: 4.7rem;
+	position: relative;
+    bottom: 21.2rem;
+}
+.bear_hand2{
+	width: 2.7rem;
+	height: 1.7rem;
+	position:relative;
+	bottom: 20.5rem;
+}
+/*登录按钮*/
+section form .login_btn{
+	width:80%;
+	display: inline-block;
+	height: 3rem;
+	font-size: 1.8rem;
+	margin-top: 1rem;
+	border:1px solid #b2b2b2;
+	background:#ffa628;
+	-webkit-border-radius:0.4rem;
+	z-index: 999;
+	color:#fff;
+}
+/*表单验证错误信息*/
+#login-error{
+	color:#ffa628;
+	font-size:2rem;
+	position: relative;
+	top:-4rem;
+}
+.sgBtn{width: 135px; height: 35px; line-height: 35px; margin-left: 10px; margin-top: 10px; text-align: center; background-color: #0095D9; color: #FFFFFF; float: left; border-radius: 5px;}

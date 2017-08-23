@@ -1,0 +1,243 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding: 1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size:62.5%;
+	color: #222;
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+input,button,select,textarea{
+	outline:none;
+}
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+::-webkit-input-placeholder { color:#fff; }
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+body{
+	background:#ebebeb;
+}
+
+/*header样式*/
+header{
+	background-color: #fc9e16;
+	height: 6.5rem;
+	vertical-align: middle;
+}
+header .search_form{
+	width: 100%;
+}
+header .search_form .search_one{
+	float:left;
+	width:calc(100% - 10rem); /*加空格*/
+	height: 2.25rem;
+	border: none;
+	color:#fff;
+	font-size:1.4rem;
+	-webkit-border-radius:0.4rem;
+	background:rgba(0,0,0,0.15);
+	margin:3rem auto auto 1rem;
+	padding-left:3rem;
+}
+header .search_form .search_two{
+	float: left;
+	width:2rem;
+	height:2.5rem;
+	vertical-align: middle;
+	font-size:0;
+	border:none;
+	background-image:url(search.png)no-repeat;
+	background-size: cover;
+	position: absolute;
+	top:3rem;
+	left:2rem;
+}
+.city_name{
+	position: absolute;
+	top: 3.4rem;
+	right:1rem;
+	color:#fff;
+	font-size: 1.6rem;
+	-webkit-appearance:none;
+	border: none;
+	background:transparent;
+	outline: none;
+}
+/*轮播图*/
+.swiper-container {
+    width:100%;
+}
+.carousel_pic{
+	display:block;
+	width:100%;
+	height:127px;
+}
+.contents{
+	width:100%;
+	background:rgba(0,0,0,0.5);
+	position: absolute;
+	top:6.7rem;
+	z-index: 999;
+}
+.news_1{
+	width:70%;
+	float: left;
+	box-sizing: border-box;
+	padding-left: 1rem;
+}
+.news_1 h3{
+	font-size: 1.2rem;
+	margin: 0.6rem auto;
+	color:#fff;
+	font-weight: normal;
+}
+.news_1 article{
+	font-size: 1rem;
+	color:#b8b7bb;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp:1;
+	-webkit-box-orient:vertical;
+	margin-bottom:0.5rem;
+}
+.news_2{
+	width:30%;
+	float: left;
+	color:#ed9620;
+	text-align: right;
+	padding-right: 1rem;
+	-webkit-box-sizing:border-box;
+}
+.news_2 .news_source{
+	font-size: 1rem;
+	margin: 0.6rem auto;
+	font-weight: normal;
+}
+
+/*中间导航*/
+.nav_list{
+	width:100%;
+	height:6.5rem;
+	background:#fd9b14;
+	position: relative;
+	bottom: 1px;
+}
+.nav_list_num1,.nav_list_num2,.nav_list_num3,.nav_list_num4{
+	float: left;
+	width:25%;
+	height: 6.5rem;
+	text-align: center;
+}
+.nav_list_num1 img,.nav_list_num2 img,.nav_list_num3 img,.nav_list_num4 img{
+	width:80px;
+	height:80px;
+}
+/*主要内容*/
+.main_container{
+	width: 100%;
+	background:#ebebeb;
+	/*假设height为70rem*/
+	height: 70rem;
+}
+/*底部控件*/
+.footer_list{
+	width: 100%;
+	height:5.5rem;
+	position:fixed;
+	bottom: 0;
+	background:#fff;
+}
+.footer_list_num1,.footer_list_num2,.footer_list_num3,.footer_list_num4{
+	float: left;
+	width:25%;
+	height: 4.25rem;
+	text-align: center;
+}
+.footer_list_num1 img,.footer_list_num2 img,.footer_list_num3 img,.footer_list_num4 img{
+	width: 8rem;
+	height: 5.5rem;
+}
+.active{
+	background:rgba(0,0,0,0.15);
+}

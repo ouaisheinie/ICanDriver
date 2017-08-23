@@ -1,0 +1,220 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding: 1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size: 62.5%;
+	color: #222;
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+/*header样式*/
+header{
+	background: -webkit-linear-gradient(left,#ff8b93,#fdc081);
+	height:50px;
+}
+header ul li{
+	height: 50px;
+	float:left;
+	overflow: hidden;
+}
+header ul li img{
+	width:50px;
+	height: 50px;
+	margin-top: 5px;
+}
+header ul li p{
+	display: inline-block;
+	font-size: 22px;
+	/*float:left;*/
+	margin-top:14px;
+	color:#fff;
+	padding-left:10px;
+	border-left: 1px solid #efdedd;
+}
+
+/*mainbody样式*/
+.mainbody{
+	background:#fff;
+}
+.signUp_point{
+	font-weight: bold;
+	display:inline-block;
+	width:10rem;
+	font-size: 1.6rem;
+	color:#aaaaaa;
+	margin-left:1.5rem;
+	margin-bottom: 0;
+}
+.schoolMessage{
+}
+.mainbody_left_img{
+	float:left;
+	width:10.6rem;
+	padding-bottom: 1rem;
+}
+.mainbody_left_img img{
+	margin-left:1rem;
+	width:80%;
+	height:7rem;
+	margin-top: 1.5rem;
+}
+.mainbody_right_message{
+	margin-left:10rem;
+	border-top: 1px solid #eeeee9;
+}
+.mainbody_right_message h2{
+	margin:1.5rem auto 0.9rem;
+}
+.mainbody_right_message p{
+	margin-right:1rem;
+}
+
+.sign_up{
+	float: left;
+	color:#ff8b91;
+}
+.distance{
+	float:right;
+	color:#ff8b91;
+	margin-right:1.2rem;
+}
+.distance_long{
+	position:relative;
+	bottom: 0.4rem;
+}
+
+/*查询按钮*/
+.searchMore{
+	width:100%;
+	margin-top:1.5rem;
+}
+.searchMore .form_1{
+	display: inline-block;
+	width:100%;
+}
+.searchMore .form_1 .btn_1{
+	display: inline-block;
+	width:96%;
+	height:3rem;
+	margin-left:2%;
+	background-color: #fda789;
+	-webkit-border-radius:5px;
+	border:none;
+}
+
+/*底部*/
+footer{
+	font-size: 1.2rem;
+	color:#fec3ae;
+	margin: 1rem auto;
+
+}
+.footer_text{
+	width:18rem;
+	margin: 0 auto;
+	position: relative;
+	left: 2rem;
+}
+.footer_text p{
+	display: inline-block;
+}
+.footer_line1{
+	width: calc(50% - 9rem);
+	float:left;
+	border-top:1px solid #ccc;
+	position: relative;
+	top:1.5rem;
+}
+.footer_line2{
+	width:calc(50% - 9rem);
+	float:right;
+	border-top:1px solid #ccc;
+	position: relative;
+	bottom: 1.5rem;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>信息录入</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="information.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header class="clearfix">
+	<ul>
+		<li><button class="information_btn1"></button></li>
+		<li><p>实名认证</p></li>
+	</ul>
+</header>
+<section class="mainbody">
+	<section class="head_portrait"><img  id="headImage" src="http://image.icandrive.cn/herderimg.jpg">
+	<input id="upload" name="file" accept="image/*" type="file" style="display: none"/>
+	</section>
+	<p class="change_head">更换头像</p>
+	<form class="information_collect clearfix" >
+		<span>姓名:</span>
+		<input class="message_input" type="text" name="username" id="username">
+		<br/>
+		<span>身份证号:</span>
+		<input class="message_input" type="text" name="idcard" id="idcard">
+		<br/>
+		<span>职业:</span>
+		<input class="message_input" type="text" name="work" id="work">
+		<br/>
+		<div class="checkbox_default">
+			<input type="checkbox" id="drive_argument" name="drive_argument" >我已阅读并同意《i驾车报名协议》
+			<label id="label_btn" for="drive_argument"></label>
+		</div>
+		<br/>
+		<input class="submit_final" id="regBtn" type="button"  disabled value="提交" >
+	</form>
+</section>
+<script src="jquery.min.js"></script>
+<script src="picturefill.js"></script>
+<script src="information.js"></script>
+<script src="mui.min.js"></script>
+<script src="../layer.js"></script>
+<script type="text/javascript">
+	$(".information_btn1").click(function(){
+		window.location.href="http://localhost/work/web/my/me.html";
+	});
+	$(function(){
+    var regBtn = $("#regBtn");
+    $("#drive_argument").change(function(){
+        var that = $(this);
+        that.prop("checked",that.prop("checked"));
+        if(that.prop("checked")){
+            regBtn.prop("disabled",false)
+        }else{
+            regBtn.prop("disabled",true)
+        }
+    });
+});	
+  $(function() {
+$("#headImage").click(function () {
+$("#upload").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+$("#upload").on("change",function(){
+var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
+if (objUrl) {
+$("#headImage").attr("src", objUrl) ; //将图片路径存入src中，显示出图片
+		}
+	});
+       });
+}); 
+  //建立一個可存取到該file的url
+function getObjectURL(file) {
+var url = null ;
+	if (window.createObjectURL!=undefined) { // basic
+	url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+	url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+}
+
+return url ;
+}
+
+$("#username").blur(function(){
+	var username = $("#username").val();
+	if(username==""){
+		layer.msg("姓名不能为空");
+		return false;
+	}
+});
+$("#idcard").blur(function(){
+	var idcard = $("#idcard").val();
+	if(idcard==""){
+		layer.msg("请输入身份证号码");
+		return false;
+	}else if (!/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/i.test(idcard)){
+		layer.msg("请填写合法的身份证号");
+		return false;
+	}
+});
+$("#work").blur(function(){
+	var work = $("#work").val();
+	if(work  ==""){
+		layer.msg("职业不能为空");
+		return false;	
+	}
+});
+$(".submit_final").click(function(){
+	var token =localStorage.phone;
+	var username = $("#username").val();
+	if(username==""){
+		layer.msg("姓名不能为空");
+		return false;
+	}
+	var idcard = $("#idcard").val();
+	if(idcard==""){
+		layer.msg("身份证不能为空");
+		return false;
+	}
+	var work = $("#work").val();
+		if(work==""){
+			layer.msg("职业不能为空");
+			return false;
+		}
+	var img =$("#headImage").prop('src')
+	$.ajax({
+		url:"http://localhost/work/api/saveUserInfo.php",
+		type:'post',
+		dataType:'json',
+		data:{token:token,user_name:username,id_number:idcard,work:work,photo:img},
+		success:function(data){
+			if(data.status==200){
+				layer.msg("认证成功");
+				setInterval(function(){
+					window.location.href="../index/index.html";
+				},2000);
+			}
+			if(data.status==250){
+				layer.msg("请重新登录");
+				setInterval(function(){
+					window.location.href="../login/log_in.html";
+				},2000);
+			}
+			if(data.status==400){
+				layer.msg("认证失败，请重新认证");
+			}
+		},
+		error:function(){
+				layer.msg("请求失败");
+		}
+	});
+});
+
+</script>
+</body>
+</html>

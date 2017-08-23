@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>信息录入</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="drive_information.css">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header class="clearfix">
+	<ul>
+		<li><button class="information_btn1"></button></li>
+		<li><p style="padding-left: 8rem;border-left: 0px solid #efdedd;">送考信息</p></li>
+	</ul>
+</header>
+<section class="mainbody">
+	<form class="information_collect">
+		<span>科目:</span>
+		<!-- <input class="message_input" type="text"> -->
+		<select class="message_input subject" id="subject" >
+			<option class="">请选择</option>
+			<option value="kemu2">科目二</option>
+			<option value="kemu3">科目三</option>
+		</select>
+		<br/>
+		<span>接送时间:</span>
+		<input class="message_input time" type="text"   onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+		<br/>
+		<span>接送地址:</span>
+		<input class="message_input " id="address" type="text" />
+		<input class="submit_final submit" type="button" value="提交" style="margin-right: 7.5rem;margin-top: 8.5rem;">
+	</form>
+</section>
+
+<script src="jquery.min.js"></script>
+<script src="../layer.js"></script>
+<script src="picturefill.js"></script>
+<script src="laydate/laydate.js"></script>
+
+<script>
+
+	$(function () {
+
+		$('.submit').on('click', function () {
+			var token = localStorage.phone;
+			var time = $('.time').val();
+			var obj = window.document.getElementById("subject");
+			var address=$('#address').val();
+			var subject=obj.options[obj.selectedIndex].text;
+		$.ajax({
+			url:"http://localhost/work/api/songkao.php",
+			type:'post',
+			data:{token:token,subject:subject,time:time,address:address},
+			dataType:'json',
+			success:function(data){
+				if(data.status==200){
+					layer.msg('约考成功');
+					setInterval(function () {
+						window.location.href='http://localhost/work/web/index/index.html'
+					},2000)
+				}
+				else{
+					layer.msg('错误');
+				}
+
+						},
+			error:function(){
+
+
+
+			}
+	})
+		});
+		})
+</script>
+</body>
+</html>

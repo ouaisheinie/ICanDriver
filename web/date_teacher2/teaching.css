@@ -1,0 +1,363 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding: 0.1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size:625%;
+	color: #222;
+	font-family: "微软雅黑";
+}
+/*@media only screen and (min-width:401px){
+	html{
+		font-size:750%;
+	}
+}*/
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+input,button,select,textarea{
+	outline:none;
+}
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+/*header样式*/
+header{
+	height: 0.67rem;
+	background:#fd8731;
+}
+header button{
+	width: 0.285rem;
+	height: 0.285rem;
+	border: none;
+	background: url(back2.png)no-repeat;
+	background-size: 0.2rem 0.2rem;
+	background-position: 0.045rem 0.045rem;
+	background-color: rgba(0,0,0,0.15);
+	float:left;
+	margin:0.28rem auto auto 0.1rem;
+}
+header p{
+	color: #fff;
+	font-size: 0.17825rem;
+	margin:0 auto;
+	position: absolute;
+	top:0.335rem;
+	left:calc(50% - 0.365rem);
+}
+header img{
+	width: 0.175rem;
+	height: 0.215rem;
+	float:right;
+	margin:0.335rem 0.165rem 0.12rem auto;
+}
+/*主要内容*/
+/*头像以及教练介绍*/
+
+.introduce_module{
+	height: 1.38rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+.left_head{
+	width:  1.2rem;
+	float:left;
+}
+.left_head img{
+	width: 0.89rem;
+	height: 0.89rem;
+	margin: 0.22rem auto auto 0.24rem;
+}
+.left_head p{
+	color: #fff;
+	float: left;
+	font-size: 0.1067rem;
+	background: #6ab494;
+	padding: 0.04rem 0.04rem 0.035rem 0.04rem;
+	margin: -0.36rem auto auto 0.6rem;
+	position: absolute;
+	z-index: 999;
+	-webkit-border-radius:0.05rem;
+}
+
+/*练车地址*/
+.right_text{
+	width: calc(100% - 1.2rem);
+	height: 1.38rem;
+	float: right;
+	margin: 0;
+}
+.location p{
+	font-size: 0.12445rem;
+	display: block;
+}
+.location p span{
+	color:#fc9b13;
+}
+.location p i{
+	width: 0.125rem;
+	height: 0.135rem;
+	display: block;
+	float: right;
+	background: url(locate.png)no-repeat;
+	background-size: cover;
+	position: relative;
+	top:1.2px;
+	margin-right: calc(100% - 1.75rem);
+}
+.coach_info p{
+	color: #777777;
+	font-size: 0.09485rem;
+	display: block;
+	height: 53px;
+	padding-right: 0.15rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	overflow: hidden;
+}
+.choise_serve{
+	float: right;
+	margin-right: 0.15rem;
+}
+.choise_serve p{
+	font-size: 0.0889rem;
+	display: block;
+	margin: 0 auto ;
+	float: left;
+	color:#fc9b13;
+	border: 1px solid #fc9b13;
+	padding: 0.03rem 0.03rem 0.03rem 0.025rem;
+}
+.choise_serve p+p{
+	margin: 0 auto 0 0.055rem;
+}
+/*评论区块*/
+.coach_items{
+	font-size: 0.1067rem;
+	margin-left: 0.15rem;
+}
+.coach_items p{
+	color: #888888;
+	border: 1px solid #6ab494;
+	padding: 0.03rem 0.04rem 0.03rem 0.04rem;
+	-webkit-border-radius:0.1rem;
+	display: block;
+	float: left;
+	margin: 0.12rem auto auto auto;
+}
+.coach_items p+p{
+	margin-left: 0.06rem;
+}
+.public_comments{
+	border-bottom: 3px solid #f5f5f5;
+}
+.conments_left{
+	width: 75%;
+	float: left;
+}
+.conments_left h4{
+	color: #6ab494;
+	font-size: 0.10685rem;
+	margin: 0.11rem auto 0.095rem 0.15rem;
+}
+.conments_left p{
+	font-size: 0.0889rem;
+	color: #999999;
+	margin-left: 0.15rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.conments_more{
+	color: #999999;
+	font-size: 0.0889rem;
+	text-align: right;
+	float: right;
+	margin: 0.356rem 0.15rem auto auto;
+}
+.conments_more span i{
+	display: block;
+	width: 0.1rem;
+	height: 0.13rem;
+	background:url(more_commnets.png)no-repeat;
+	background-size:0.06rem 0.10rem;
+	background-position:0.04rem 0.0235rem;
+	float: right;
+}
+/*底部学习时间 科目*/
+.headline ul li{
+	font-size: 0.1778rem;
+	float: left;
+	width: 50%;
+	text-align: center;
+	padding:0.12rem 0 0.1rem 0;
+	background: #e6f1ea;
+}
+/*.headline ul li+li{
+	background: #e6f1ea;
+}*/
+.headline ul li:first-child{
+	background: #ffffff;
+}
+/*底部时间段*/
+.appointment_time{
+
+}
+.teach_time li{
+	float:left;
+}
+.time_slot{
+	width: 40%;
+}
+.today,.tomorrow,.after_tomorrow{
+	width: 20%;
+}
+.teach_time li ul{
+	text-align: center;
+}
+.time_slot ul li:first-child,.today ul li:first-child{
+	font-size: 0.14225rem;
+	color: #555555;
+	font-weight: bold;
+	margin: 0.17rem auto 0.25rem auto;
+}
+.time_slot ul li+li,.today ul li+li{
+	font-size:  0.11855rem;
+	margin-bottom: 0.27rem;
+}
+.today ul li+li{
+	color:#aaaaaa;
+}
+.tomorrow ul li+li,.after_tomorrow ul li+li{
+	font-size: 0.11855rem;
+	height: 0.175rem;
+}
+.tomorrow ul li+li span,.after_tomorrow ul li+li span{
+	position: relative;
+	top: 0.03rem;
+}
+.today ul li+li{
+	color:#aaaaaa;
+}
+.teach_time li ul li{
+	float: left;
+	clear: both;
+	display:block;
+	width: 100%;
+	text-align: center;
+}
+.tomorrow ul li+li form input,.after_tomorrow ul li+li form input{
+	position: absolute;
+	left: -9999px;
+}
+.tomorrow ul li form,.after_tomorrow ul li form{
+	text-align: center;
+}
+.tomorrow ul li form i,.after_tomorrow ul li form i{
+	display: block;
+	width: 0.175rem;
+	height: 0.175rem;
+	margin: 0 auto;
+	background: url(gray_v.png)no-repeat;
+	background-size: 0.175rem 0.175rem;
+}
+.tomorrow ul li:first-child,.after_tomorrow ul li:first-child{
+	margin: 0.17rem auto 0.22rem auto;
+	font-size: 0.14225rem;
+	color: #555555;
+	font-weight: bold;
+	margin: 0.17rem auto 0.22rem auto;
+}
+.tomorrow ul li+li,.after_tomorrow ul li+li{
+	margin-bottom: 0.225rem;
+}
+.tomorrow ul li form label input:checked+i,.after_tomorrow ul li form label input:checked+i{
+	background:url(green_v.png)no-repeat;
+	background-size: 0.175rem 0.175rem;
+
+}
+
+/*科目三的选项*/
+.appointment_time3{
+	display: none;
+}

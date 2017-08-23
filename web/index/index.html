@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>首页</title>
+	<link rel="stylesheet" href="homepage.css">
+	<link rel="stylesheet" type="text/css" href="swiper.min.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<header class="clearfix">
+	<div class="searchBox clearfix">
+		<form action="" class="search_form">
+			<input type="text"  class='search_one' placeholder="正在进行减免活动" />
+			<img src="search.png" class="search_two"/>
+		</form>
+	</div>
+	<div class="city clearfix">
+		<select name="city_name" class="city_name">
+			<option>成都</option>
+			<option>重庆</option>
+			<option>西安</option>
+		</select>
+		<div class="estop_arrow"></div>
+	</div>
+</header>
+<section>
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide">
+	        	<a class="carousel_link" href="#">
+	        		<img class="carousel_pic" src="carousel.png" alt="error">
+					<div class="contents clearfix">
+						<div class="news_1">
+	        				<h3 class="news_title clearfix">这个大学生凭啥拒绝3000万A轮融资</h3>
+	        				<article class="news_content clearfix">这里是新闻内容这里是新闻内容这里是新闻内容
+	        				</article>
+	        			</div>
+	        			<div class="news_2">
+	        				<h4 class="news_source clearfix">中国青年报</h4>
+	        				<article class="news_time clearfix">16/8/14</article>
+	        			</div>
+	        		</div>
+	        	</a>
+	        </div>
+	        <div class="swiper-slide">
+	        	<a class="carousel_link" href="#">
+	        		<img class="carousel_pic" src="carousel.png" alt="error">
+					<div class="contents">
+						<div class="news_1">
+	        				<h3 class="news_title clearfix">这个大学生凭啥拒绝3000万A轮融资</h3>
+	        				<article class="news_content clearfix">这里是新闻内容这里是新闻内容这里是新闻内容
+	        				</article>
+	        			</div>
+	        			<div class="news_2">
+	        				<h4 class="news_source clearfix">中国青年报</h4>
+	        				<article class="news_time clearfix">16/8/14</article>
+	        			</div>
+	        		</div>
+	        	</a>
+	        </div>
+	        <div class="swiper-slide">
+	        	<a class="carousel_link" href="#">
+	        		<img class="carousel_pic" src="carousel.png" alt="error">
+					<div class="contents">
+						<div class="news_1">
+	        				<h3 class="news_title clearfix">这个大学生凭啥拒绝3000万A轮融资</h3>
+	        				<article class="news_content clearfix">这里是新闻内容这里是新闻内容这里是新闻内容
+	        				</article>
+	        			</div>
+	        			<div class="news_2">
+	        				<h4 class="news_source clearfix">中国青年报</h4>
+	        				<article class="news_time clearfix">16/8/14</article>
+	        			</div>
+	        		</div>
+	        	</a>
+	        </div>
+	    </div>
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	</div>
+<ul class="nav_list">
+	<li class="nav_list_num1">
+		<a><img src="free-drive.png" alt="免费试驾"></a>
+	</li>
+	<li class="nav_list_num2">
+		<a href="#"><img src="knows_before_drive.png" alt="学车须知"></a>
+	</li>
+	<li class="nav_list_num3">
+		<a href="http://localhost/work/web/schoolList/schoolList.html"><img src="apply_hurry.png" alt="立即报名"></a>
+	</li>
+	<li class="nav_list_num4">
+		<a><img src="study_now.png" alt="立即约教"></a>
+	</li>
+</ul>
+</section>
+<footer>
+	<ul class="footer_list">
+		<li class="footer_list_num1">
+			<img src="study_drive_off.png" alt="学车">
+		</li>
+		<li class="footer_list_num2">
+			<img src="oderForm_off.png" alt="订单">
+		</li>
+		<li class="footer_list_num3">
+			<img src="practice_off.png" alt="练题">
+		</li>
+		<li class="footer_list_num4" onclick="window.location.href='http://localhost/work/web/my/me.html'">
+			<img src="me_off.png" alt="我">
+		</li>
+	</ul>
+</footer>
+<script src="../info/jquery.min.js"></script>
+<script src="swiper.jquery.min.js"></script>
+<script src="picturefill.js"></script>
+<script src="layer.js"></script>
+<script src="swiperHomepage.js"></script>
+<script type="text/javascript">
+
+
+	$(".nav_list_num1").click(function() {
+		var token = localStorage.phone;
+		$.ajax({
+			url: "http://localhost/work/api/index.php",
+			type: 'post',
+			data: {token: token},
+			dataType: 'json',
+			success: function (data) {
+				if (data.status == 200) {
+					$.ajax({
+						url: "http://localhost/work/api/realName.php",
+						type: 'post',
+						data: {token: token},
+						dataType: 'json',
+						success: function (data) {
+							if (data.status == 200) {
+								window.location.href = "http://localhost/work/web/info/drive_information.html";
+							}
+							if (data.status == 250) {
+								layer.msg("请重新登录");
+								setInterval(function () {
+									window.location.href = "http://localhost/work/web/login/log_in.html";
+								}, 2000)
+							}
+							if (data.status == 400) {
+								layer.msg('请先实名认证');
+								setInterval(function () {
+									window.location.href = "http://localhost/work/web/info/information.html"
+								}, 2000)
+							}
+
+						},
+						error: function () {
+							alert("请求失败");
+						}
+					});
+				}
+				if (data.status == 400) {
+					layer.msg('您已申请过免费试驾');
+				}
+
+			},
+			error: function () {
+				layer.msg("请求失败");
+			}
+		});
+	});
+
+
+	$(".nav_list_num4").click(function() {
+		var token = localStorage.phone;
+		$.ajax({
+			url: "http://localhost/work/api/realName.php",
+			type: 'post',
+			data: {token: token},
+			dataType: 'json',
+			success: function (data) {
+				if (data.status == 200) {
+					window.location.href = "http://localhost/work/web/date_teacher/arrange_teaching.html";
+				}
+				if (data.status == 250) {
+					layer.msg("请重新登录");
+					setInterval(function () {
+						window.location.href = "http://localhost/work/web/login/log_in.html";
+					}, 2000)
+				}
+				if (data.status == 400) {
+					layer.msg('请先实名认证');
+					setInterval(function () {
+						window.location.href = "http://localhost/work/web/info/information.html"
+					}, 2000)
+				}
+
+			},
+			error: function () {
+				alert("请求失败");
+			}
+		});
+	});
+
+
+</script>
+</body>
+</html>

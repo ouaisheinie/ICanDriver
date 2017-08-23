@@ -1,0 +1,354 @@
+/*===========
+ie9以下浏览器提示更新样式
+=============*/
+.browserupgrade{
+	margin:0;
+	padding:0.1rem;
+	background: #ccc;
+}
+
+/*===========
+基本默认值
+=============*/
+html{
+	font-size:625%;
+	color: #222;
+}
+
+::selection{
+	background-color: #b3d4fc;
+	text-shadow:none;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+input,button,select,textarea{
+	outline:none;
+}
+/*===========
+	工具样式
+=============*/
+
+.center-block{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;    /*让元素在父元素居中*/
+}
+
+.pull-right{
+	float:right !important;
+}
+
+.pull-left{
+	float:left !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.hide{
+	display:none !important;   /*display:none; 隐藏后 元素彻底消失*/
+}
+
+.show{
+	display:block !important;
+}
+
+.invisible{
+	visibility: hidden;    /* visibility: hidden;隐藏后  元素看不到 但是还在*/
+}
+
+.text-hide{
+	font:0/0 a;
+	color:transparent;
+	text-shadow:none;
+	background-color: transparent;
+	border:0;
+}
+::-webkit-input-placeholder { color:#fff; }
+/*===========
+ 清除浮动  最终版
+=============*/
+.clearfix:before,.clearfix:after{   /*加上一个before  可以防止浏览器margin重叠*/
+    content:"";
+    display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+/*头部样式*/
+header{
+	height: 0.67rem;
+	background:#fe8435;
+}
+header p:first-child{
+	font-size: 0.17775rem;
+	margin: 0.35rem auto auto 0.155rem;
+	display: block;
+	float: left;
+	color:#fff;
+}
+header p:last-child{
+	font-size: 0.1422rem;
+	margin: 0.365rem 0.165rem auto auto;
+	display: block;
+	float: right;
+	color: #fff;
+}
+/*section*/
+section{
+	/*min-height: 4rem;*/
+}
+/*oder_details*/
+.oder_details ul{
+	height: 0.34rem;
+	vertical-align: middle;
+}
+.oder_details ul li{
+	height: 0.34rem;
+	font-size: 0.10665rem;
+	width: 33.33333333%;
+	float: left;
+	display: block;
+	color: #4c4c4c;
+	text-align: center;
+	line-height: 0.34rem;
+}
+.oder_details_active{
+	color:#fd8b2d !important;
+	border-bottom:2px solid #fd8b2d;
+	box-sizing: border-box;
+}
+/*学员取消的订单*/
+.oder_canceled p{
+	font-size: 0.08885rem;
+	background: #ebebeb;
+	display: block;
+	height: 0.225rem;
+	margin: 0;
+	padding-left: 0.12rem;
+	color: #808080;
+	line-height: 0.225rem;
+}
+
+/*订单取消信息*/
+.cancle_oders_list{
+	margin: 0 0.15rem;
+	border-bottom:1px solid #cdcdcd;
+}
+.cancle_reason{
+	height: 0.98rem;
+}
+.float_li1{
+	float: left;
+	height: 0.98rem;
+}
+/*appoint_time*/
+.appoint_time{
+	width: 0.6rem;
+}
+.appoint_time ul li{
+	font-size: 0.1422rem;
+	color: #808080;
+	text-align: center;
+}
+.appoint_time ul li:first-child{
+	margin-top: 0.32rem;
+}
+.appoint_time ul li:first-child+li{
+	margin-top: 0.12rem;
+}
+/*head_portrait*/
+.head_portrait{
+	width: 0.71rem;
+	text-align: center;
+}
+.head_portrait img{
+	width: 0.71rem;
+	height: 0.71rem;
+	vertical-align: top;
+	margin-top: 0.15rem;
+}
+.head_portrait p{
+	font-size: 0.08885rem;
+	margin: 0;
+	text-align: center;
+	border:none;
+	background: #fe8632;
+	display: block;
+	width: 0.48rem;
+	padding: 0.025rem 0.04rem 0.025rem 0.03rem;
+	-webkit-border-radius: 0.05rem;
+	position: relative;
+	top:-0.4rem;
+	left: 0.075rem;
+	color:#fff;
+}
+
+/*.subject_reason*/
+.subject_reason{
+	width: calc(100% - 0.6rem - 0.71rem - 0.075rem);
+}
+/*媒体查询*/
+@media only screen and (max-width: 325px) {
+	.subject_reason h3{
+		margin: 0.23rem auto auto 0.12rem !important;
+	}
+	.subject_reason span{
+		margin: 0.268rem auto auto 0.07rem !important;
+	}
+	.subject_reason p{
+		padding-left: 0.12rem !important;
+	}
+}
+.subject_reason h3{
+	font-size: 0.1422rem;
+	margin: 0;
+	color: #4c4c4c;
+	margin: 0.23rem auto auto 0.175rem;
+}
+.subject_reason span{
+	font-size: 0.10665rem;
+	color: #7f7f7f;
+	margin: 0.268rem auto auto 0.11rem;
+}
+.subject_reason p{
+	font-size: 0.10665rem;
+	margin:0;
+	color: #7f7f7f;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	padding-left: 0.175rem;
+	margin-top: 0.13rem;
+	width: 90%;
+}
+.subject_reason h3,.subject_reason span,.subject_reason p{
+	float: left;
+}
+/*right_arrow*/
+.right_arrow{
+	width: 0.075rem;
+}
+.right_arrow img{
+	width: 0.075rem;
+	height: 0.13rem;
+	vertical-align: top;
+	margin-top: 0.1rem;
+}
+/*两个按钮的样式*/
+.btn_list{
+	height: 0.565rem;
+}
+.btn_list button{
+	font-size: 0.1422rem;
+	height: 0.42rem;
+	width: calc(50% - 0.24rem);
+	float: left;
+}
+.btn_list button:first-child{
+	margin:0.06rem auto auto 0.18rem;
+	box-sizing: border-box;
+	border:1px solid #fd892f;
+	background: transparent;
+	color: #fd892f;
+	-webkit-border-radius:0.05rem;
+}
+.btn_list button:last-child{
+	margin:0.06rem 0.18rem auto 0.12rem;
+	background: #fd892f;
+	color: #fff;
+	box-sizing: border-box;
+	border:none;
+	-webkit-border-radius:0.05rem;
+}
+
+/*教学订单分割线*/
+.teaching_oder{
+	border-bottom:5px solid #ebebeb;
+}
+/*.coverd{
+	height: 0.6rem;
+	width: 100%;
+}*/
+/*完成的订单*/
+
+/*与底边栏的分割线*/
+.order{
+	font-size: 0.15rem;
+   	color: #aeaeae;
+	height: 60px;
+   	line-height: 60px;
+   	text-align: center;
+   	background: #ebebeb;
+   	margin-bottom: 0.6rem;
+	display: none;
+}
+.order .line {
+   	display: inline-block;
+   	width: calc(50% - 0.9rem);
+  	border-top: 1px solid #ccc ;
+}
+.order .line:first-child{
+	margin-right: 0.1rem;
+}
+.order .line:last-child{
+	margin-left: 0.1rem;
+}
+.order .txt {
+	vertical-align: -6%;
+}
+
+/*底部导航*/
+footer{
+	height: 0.6rem;
+	position: fixed;
+	bottom: 0;
+	background: #fff;
+	width: 100%;
+}
+footer,footer ul{
+	height: 0.6rem;
+
+}
+footer ul li{
+	font-size: 0.18rem;
+	height: 0.6rem;
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+footer ul li img{
+	width: 0.23rem;
+	height: 0.21rem;
+	margin-top: 0.075rem;
+	margin-bottom: 0.02rem;
+}
+footer ul li span{
+	font-size: 0.10665rem;
+	color: #979797;
+}
+
+/*订单页面操作  orders1 orders2 orders3*/
+.orders1,.orders3{
+	display: none;
+}

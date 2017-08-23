@@ -1,0 +1,67 @@
+
+<div class="hide">
+<div class="head">
+	<div class="body">
+		<div class="mui-popup-title">提示</div>
+		<div class="mui-popup-text">请输入身份证号码</div>
+	</div>
+	<div class="buttons">
+		确定
+	</div>
+	
+</div>
+</div>
+<style type="text/css">
+body{
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	background: #dadada;
+}
+	.hide{
+		
+	              width:100%;  
+		    position:absolute;  
+		    background:#000;  
+		    z-index:-1;
+		    top:0;  
+		    left:0;  
+		    height:2000px;
+		    opacity:0.02; 
+	}
+	.head{
+		background: white;
+		border: 1px solid black;
+		border-radius: 8px;
+		height: 100px;
+		width:20%;
+		text-align: center;
+		line-height: 29px;
+		position: fixed;
+		left: 40%;
+		top:50%;
+
+	}
+	.body{
+		border-bottom:1px solid black;
+		
+		height: 60%;
+		width: 100%;
+
+	}
+	.buttons{
+		line-height: 40px;
+		cursor:pointer;
+	}
+	.buttons:active{
+		background: #338fff;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+</style>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+	$(".buttons").click(function(){
+		var buttons =$(".head").hide();
+	});
+</script>
